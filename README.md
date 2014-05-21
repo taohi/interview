@@ -1,4 +1,4 @@
 interview
 =========
-
-Linux下脚本编程和用户态c编程 等等
+《剑指offer》等面试笔试题的代码实现
+语言：C/C++/python
