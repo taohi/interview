@@ -31,6 +31,8 @@ void replaceBlank(char *str,int length)
 int main()
 {
     char str[LEN];
+    //这个scanf的参数，表示获取输入，直到出现回车符。
+    //所以这样能输入带空格的字符串。
     scanf("%[^\n]",str);
     replaceBlank(str,LEN);
 }
