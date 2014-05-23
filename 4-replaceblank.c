@@ -1,9 +1,8 @@
 #include <stdio.h>
-#define LEN 50
+#define MAXLEN 1024
 void replaceBlank(char *str,int length)
 {
     int len1=0,len2=0,space_num=0;
-    int i=0;
     while(str[len1]!='\0')
     {
         if(str[len1]==' ')
@@ -13,7 +12,7 @@ void replaceBlank(char *str,int length)
     len2=len1+space_num*2; 
     if(len2>length)
         return;
-    while(len1>0)
+    while(len1>=0)
     {
         if(str[len1] ==' ')
         {
@@ -30,9 +29,11 @@ void replaceBlank(char *str,int length)
 
 int main()
 {
-    char str[LEN];
-    //这个scanf的参数，表示获取输入，直到出现回车符。
-    //所以这样能输入带空格的字符串。
-    scanf("%[^\n]",str);
-    replaceBlank(str,LEN);
+    char c,str[MAXLEN];
+    int i=0;
+    while((c=getchar())!=EOF && c!='\n')
+        str[i++]=c;
+    str[i]='\0';
+    replaceBlank(str,MAXLEN);
+    return 0;
 }
