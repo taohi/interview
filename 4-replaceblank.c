@@ -12,6 +12,8 @@ void replaceBlank(char *str,int length)
     len2=len1+space_num*2; 
     if(len2>length)
         return;
+    len1--;
+    len2--;
     while(len1>=0)
     {
         if(str[len1] ==' ')
