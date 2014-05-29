@@ -25,6 +25,11 @@ treeNode *buildNode(int *preOrder,int *inOrder,int orderLen)
         else
             break;
     }
+    if(inParent==orderLen && inOrder[inParent]!=parent->data)
+    {
+        printf("Invalid Order list.\n");
+        exit(1);
+    }
     if(inParent > 0)
     {
         parent->lchild = buildNode(preOrder+1,inOrder,inParent);
