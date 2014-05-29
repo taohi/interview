@@ -6,11 +6,12 @@ typedef struct tNode{
     struct tNode *rchild;
 }treeNode;
 
-//先序序列和中序序列的长度相同，为orderLen
+//先序序列和中序序列的长度必须相同，为orderLen
 treeNode *buildNode(int *preOrder,int *inOrder,int orderLen)
 {
     if(preOrder == NULL||inOrder == NULL||orderLen==0)
         return NULL;
+    //inParent是当前parent在中序里的下标
     int inParent=0;
     treeNode *parent=(treeNode *)malloc(sizeof(treeNode));
     parent->data = preOrder[0];
