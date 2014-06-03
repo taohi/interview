@@ -1,3 +1,4 @@
+//青蛙跳台阶，每次可跳任意步
 #include <stdio.h>
 long long frogjump(unsigned n)
 {
