@@ -1,3 +1,4 @@
+//青蛙一次可以跳1级或者2级台阶，那么N级台阶有几种跳法
 #include <stdio.h>
 long long frogjump(unsigned n)
 {
