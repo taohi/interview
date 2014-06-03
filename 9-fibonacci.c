@@ -10,7 +10,7 @@ long long fibonacci(unsigned n)
   fibOne=0;
   fibTwo=1;
   for(i=2;i<=n;i++)
- {
+  {
     fibThree = fibOne+fibTwo;
     fibOne=fibTwo;
     fibTwo=fibThree;
