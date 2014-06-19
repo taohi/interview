@@ -32,6 +32,18 @@ ListNode *createList()
     return pHead;
 }
 
+void freeList(ListNode *phead)
+{
+    ListNode *p=NULL;
+    while(phead)
+    {
+        p=phead;
+        phead=phead->next;
+        free(p);
+    }
+    p=NULL;
+}
+
 void printList(ListNode *phead)
 {
     while(phead)
@@ -66,7 +78,9 @@ int main()
 {
     ListNode *pHead1=createList();
     ListNode *pHead2=createList();
+    ListNode *mergedHead=merge_sortedList(pHead1,pHead2);
     printf("After Merge:");
-    printList(merge_sortedList(pHead1,pHead2));
+    printList(mergedHead);
+    freeList(mergedHead);
     return 0;
 }

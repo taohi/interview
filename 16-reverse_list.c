@@ -61,6 +61,18 @@ ListNode *reverseList(ListNode *phead)
     return p2;
 }
 
+void freeList(ListNode *phead)
+{
+    ListNode *p=NULL;
+    while(phead)
+    {
+        p=phead;
+        phead=phead->next;
+        free(p);
+    }
+    p=NULL;
+}
+
 int main()
 {
     ListNode *pHead=NULL;
@@ -69,6 +81,8 @@ int main()
     printf("Origin List:");
     printList(pHead);
     printf("After Reverse:");
-    printList(reverseList(pHead));
+    pHead=reverseList(pHead);
+    printList(pHead);
+    freeList(pHead);
     return 0;
 }
