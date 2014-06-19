@@ -79,7 +79,7 @@ int main()
     ListNode *pHead1=createList();
     ListNode *pHead2=createList();
     ListNode *mergedHead=merge_sortedList(pHead1,pHead2);
-    printf("After Merge:");
+    printf("After Merge:\n");
     printList(mergedHead);
     freeList(mergedHead);
     return 0;
