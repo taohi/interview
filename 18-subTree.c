@@ -24,6 +24,30 @@ treeNode *createTree()
         return NULL;
     return p;
 }
+int DoesTree1HaveTree2(treeNode *pRoot1,treeNode *pRoot2)
+{
+    if(pRoot2==NULL)
+        return 1;
+    if(pRoot1==NULL)
+        return 0;
+    if(pRoot1->data!=pRoot2->data)
+        return 0;
+    return DoesTree1HaveTree2(pRoot1->lchild,pRoot2->lchild) && DoesTree1HaveTree2(pRoot1->rchild,pRoot2->rchild);
+}
+
+int hasSubTree(treeNode *pRoot1,treeNode *pRoot2)
+{
+   int result=0; 
+   if(pRoot1!=NULL &&pRoot2!=NULL)
+   {
+       result = DoesTree1HaveTree2(pRoot1,pRoot2);
+       if(!result)
+           result = hasSubTree(pRoot1->lchild,pRoot2);
+       if(!result)
+           result = hasSubTree(pRoot1->rchild,pRoot2);
+   }
+   return result;
+}
 
 //二叉树的先序遍历递归方法
 void PreOrderTraverse(treeNode *T)
@@ -37,8 +61,15 @@ void PreOrderTraverse(treeNode *T)
 
 int main ()
 {
+    int result = 0;
     treeNode *pRoot1=createTree();
+//    PreOrderTraverse(pRoot1);
     treeNode *pRoot2=createTree();
+    result = hasSubTree(pRoot1,pRoot2);
+    if(result)
+        printf("yes\n");
+    else
+        printf("no\n");
     return 0;
 }
 
