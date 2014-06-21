@@ -1,5 +1,5 @@
 #include <stdio.h>
-void printCircle(int **num,int col,int row,int start)
+void printCircle(int num[][4],int col,int row,int start)
 {
     int i=0;
     int endx=row-start-1;
@@ -13,7 +13,7 @@ void printCircle(int **num,int col,int row,int start)
             printf("%d\t",num[i][endx]);
     //从右往左打印一行
     if(start<endx && start<endy)
-        for(i=endx-1;i>=start;i++)
+        for(i=endx-1;i>=start;i--)
             printf("%d\t",num[endy][i]);
     //从下往上打印一列
     if(start<endy-1 && start <endx)
@@ -21,7 +21,7 @@ void printCircle(int **num,int col,int row,int start)
             printf("%d\t",num[i][start]);
 }
 
-void printClockwisely(int **num,int col,int row)
+void printClockwisely(int num[][4],int col,int row)
 {
     int start=0;
     if(num==NULL || col<=0 || row<=0)
@@ -36,7 +36,7 @@ void printClockwisely(int **num,int col,int row)
 
 int main()
 {
-    int num[4][4]={
+    int num[][4]={
         {1,2,3,4},
         {5,6,7,8},
         {9,10,11,12},
