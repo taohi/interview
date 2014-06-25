@@ -5,16 +5,30 @@ using namespace::std;
 bool isPopOrder(int *pPush ,int *pPop,int length)
 {
     bool result = false;
-
-
-
-
-
-
+    int *nextPush=pPush;
+    int *nextPop=pPop;
+    if(pPush!=NULL ||pPop!=NULL||length>0)
+    {
+        stack<int> stackData;
+        while(nextPop-pPop<length)
+        {
+            while(stackData.empty()||stackData.top()!=*nextPop)
+            {
+                if(nextPush-pPush==length)
+                    break;
+                stackData.push(*nextPush);
+                nextPush++;
+            }
+            if(stackData.top()!=*nextPop)
+                break;
+            stackData.pop();
+            nextPop++;
+        }
+        if(stackData.empty() && nextPop-pPop==length)
+            result = true;
+    }
     return result;
 }
-
-
 
 int main()
 {
