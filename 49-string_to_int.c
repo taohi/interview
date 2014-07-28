@@ -4,7 +4,7 @@ enum status{
     kInvalid
 };
 
-int g_nstatus=kInvalid;
+int g_nstatus=kValid;
 long long str_to_int_core(const char *digit ,int minus)
 {
     long long num = 0;
@@ -36,6 +36,7 @@ long long str_to_int_core(const char *digit ,int minus)
 int str_to_int(const char *str)
 {
     long long num=0;
+    g_nstatus=kInvalid;
     if(str!=NULL &&*str!='\0')
     {
         int minus = 0;
@@ -55,9 +56,12 @@ int str_to_int(const char *str)
 
 int main()
 {
-    char str[10];
+    char str[20];
     scanf("%s",str);
     int result_num = str_to_int(str);
-    printf("result_num:%d\n",result_num); 
+    if(g_nstatus == kValid)
+        printf("result_num:%d\n",result_num); 
+    else
+        printf("invalid input.\n");
     return 0;
 }
