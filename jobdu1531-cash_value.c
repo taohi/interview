@@ -29,4 +29,4 @@ int main()
     }
     return 0;
 }
-//动态规划思想：对于1~i的面值之和total，如果第i+1个数大于total+1则不会组成total+1. 
+//动态规划思想：对于1~i的面值之和total，如果第i+1个数大于total+1则不会组成total+1的面值. 
