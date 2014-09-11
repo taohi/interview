@@ -26,23 +26,23 @@ int find_longest(char *ptr)
 {
     int cur_longest=0;
     int length=0;
-    int hash[150];
+    char *hash[150];
     int i=0;
     memset(hash,0,sizeof hash);
     while(*ptr!='\0')
     {
         if(hash[*ptr]==0)
         {
-            hash[*ptr++]++;
+            hash[*ptr++]=ptr;
             length++;
         }
         else
         {
             if(length>cur_longest)
                 cur_longest=length;
+            ptr=hash[*ptr]+1;
             memset(hash,0,sizeof hash);
-            length-=1;
-            continue;
+            length=0;
         }
     }
     if(length>cur_longest)
