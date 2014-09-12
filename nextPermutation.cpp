@@ -16,16 +16,15 @@ void nextPermutation(vector<int> &num)
         return;
     vector<int>::iterator iter1=num.end()-1;
     vector<int>::iterator iter2=num.end()-2;
-    while(*iter2>=*iter1)
+    while(*iter2>=*iter1 && iter2>=num.begin())
     {
-        if(iter2==num.begin())
-            iter2=num.end()-1;
-        else
             iter2--;
-        if(iter1==num.begin())
-            iter1=num.end()-1;
-        else
             iter1--;
+    }
+    if(*iter2>=*iter1)
+    {
+        reverse(num.begin(),num.end());
+        return;
     }
     vector<int>::iterator iter3=num.end()-1;
     while(*iter2>=*iter3)
