@@ -45,5 +45,8 @@ int main()
         num.push_back(temp);
     nextPermutation(num);
     printNum(num);
+    //C++自带的库函数使用如下:
+    next_permutation(num.begin(),num.end());
+    printNum(num);
     return 0;
 }
